@@ -95,39 +95,22 @@
                     <div class="navbar-vertical-content scrollbar">
                         <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
                             <li class="nav-item">
-                                <a class="nav-link dropdown-indicator" href="#e-commerce" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="e-commerce">
-                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-shopping-cart"></span></span><span class="nav-link-text ps-1">E commerce</span>
+                                <a class="nav-link dropdown-indicator" href="#Clinic" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="Clinic">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-shopping-cart"></span></span><span class="nav-link-text ps-1">Clinic</span>
                                     </div>
                                 </a>
                                 <ul class="nav collapse show" id="e-commerce">
-                                    <li class="nav-item"><a class="nav-link dropdown-indicator" href="#product" data-bs-toggle="collapse" aria-expanded="true" aria-controls="e-commerce">
-                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Product options</span>
-                                            </div>
-                                        </a>
-                                        <ul class="nav collapse show" id="product">
-                                            <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.categories.index') }}">
-                                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Categories</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.products.index') }}">
-                                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Product list</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link " href="{{ route('dashboard.products.create') }}">
-                                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Add product</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.orders.index') }}">
-                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Orders</span>
+                                    <li class="nav-item"><a class="nav-link" href="{{route('dashboard.appointment.create') }}">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">schedule</span>
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.users.index') }}">
+                                    <li class="nav-item"><a class="nav-link" href="{{route('dashboard.appointment.index') }}">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Appointments</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.user.index') }}">
                                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">users</span>
                                             </div>
                                         </a>
@@ -203,17 +186,6 @@
                 @endif
 
                 @yield('content')
-
-                <footer class="footer">
-                    <div class="row g-0 justify-content-between fs-10 mt-4 mb-3">
-                        <div class="col-12 col-sm-auto text-center">
-                            <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2024 &copy; <a href="https://themewagon.com">Themewagon</a></p>
-                        </div>
-                        <div class="col-12 col-sm-auto text-center">
-                            <p class="mb-0 text-600">v3.20.0</p>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
     </main>

@@ -31,4 +31,9 @@ class Doctor extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }
