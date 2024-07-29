@@ -1,39 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.home')
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-
-<body>
-    <header class="home-header">
-        <h1>Dentist Schedule</h1>
-        <nav class="header-links">
-            <a href="illustrations.html">Services</a>
-            <a href="Murals.html">Insurance & Prices</a>
-            <a href="Picture.html">Team</a>
-            <a href="About.html">Location</a>
-            <a href="Shop.html">Contact</a>
-            <a href="Shop.html">Book Now</a>
-        </nav>
-    </header>
-
-
-    <footer class="footer-main">
-        <div class="footer-info">
-            <h2>Dental Schedule</h2>
-            <h2>27 Taylor St, San Francisco, CA 94102</h2>
-            <a href="info@dentalSchedule.com">Info@dentalSchedule.com</a>
-            <a href="tel:+20101234567">+20101234567</a>
-        </div>
-        <div class="footer-btns">
-            <button class="footer-btn">Visit our Google</button>
-            <button class="footer-btn">Visit our yelp</button>
-        </div>
-    </footer>
-</body>
-
-</html>
+@section('content')
+<section class="landing-section">
+    <div class="landing-content">
+        <h1>A Dental Practice Designed with You in Mind. Finally.</h1>
+        <h2>Dental Schedule provides state-of-the-art care with hands-on service and transparent pricing, all from an award-winning space in the heart of San Francisco.</h2>
+        <button class="content-btn">Book an Appointment</button>
+        <h3>Or call us at <a href="+4155270265">415-527-0263</a></h3>
+    </div>
+    <img class="landing-img" src="{{ asset('images/clinic.jpg') }}" alt="clinic landing picture">
+</section>
+@endsection
