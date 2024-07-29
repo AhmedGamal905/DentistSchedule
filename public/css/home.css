@@ -7,13 +7,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #231F20;
+}
+
 .home-header {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     padding: 10px 100px;
-    background-color: #333;
+    background-color: #231F20;
 }
 
 .home-header h1 {
@@ -59,7 +63,7 @@
 }
 
 .footer-btn {
-    background-color: black;
+    background-color: #231F20;
     color: #E7CEB9;
     border-radius: 20px;
     padding: 10px 20px;

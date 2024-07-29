@@ -1,14 +1,14 @@
 .landing-section {
-    background-color: #333;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 75%;
+    height: 100vh;
+    margin: 0 auto;
 }
 
 .landing-content {
-    width: 50%;
+    flex-grow: 1;
     padding: 50px;
 }
 
@@ -28,7 +28,7 @@
 
 .content-btn {
     background-color: #addbc6;
-    color: #333;
+    color: #231F20;
     font-size: 15px;
     font-family: "Lato", sans-serif;
     border-radius: 20px;
@@ -54,6 +54,7 @@
 
 .landing-img {
     width: 50%;
+    height: 100vh;
     object-fit: cover;
 }
 
@@ -103,11 +104,12 @@
     .landing-section {
         flex-direction: column;
         align-items: center;
+        height: auto;
     }
 
     .landing-img {
-        height: 50%;
         width: 100%;
+        height: auto;
     }
 
     .landing-content {
@@ -143,6 +145,7 @@
 
     .landing-img {
         width: 50%;
+        height: 100vh;
     }
 
     .landing-content {

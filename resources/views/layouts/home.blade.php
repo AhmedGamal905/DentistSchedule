@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/services.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/location.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
@@ -13,10 +15,9 @@
     <header class="home-header">
         <h1>Dentist Schedule</h1>
         <nav class="header-links">
-            <a href="illustrations.html">Services</a>
-            <a href="Murals.html">Insurance & Prices</a>
-            <a href="Picture.html">Team</a>
-            <a href="About.html">Location</a>
+            <a href="{{ route('services') }}">Services</a>
+            <a href="{{ route('pricing') }}">Insurance & Prices</a>
+            <a href="{{ route('location') }}">Location</a>
             <a href="Shop.html">Contact</a>
             <a href="Shop.html">Book Now</a>
         </nav>
