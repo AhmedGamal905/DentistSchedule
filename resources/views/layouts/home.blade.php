@@ -26,9 +26,9 @@
     <footer class="footer-main">
         <div class="footer-info">
             <h2>Dental Schedule</h2>
-            <h2>27 Taylor St, San Francisco, CA 94102</h2>
+            <h2>33 Taylor St, San Francisco, CA 94102</h2>
             <a href="info@dentalSchedule.com">Info@dentalSchedule.com</a>
-            <a href="tel:+4155270265">415-527-0263</a>
+            <a href="tel:+4155270263">415-527-0263</a>
         </div>
         <div class="footer-btns">
             <button class="footer-btn">Visit our Google</button>
