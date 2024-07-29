@@ -12,7 +12,7 @@ Route::controller(ViewController::class)->group(function () {
     Route::get('/services', 'showServices')->name('services');
     Route::get('/insurance-pricing', 'showPricing')->name('pricing');
     Route::get('/location', 'showLocation')->name('location');
-    // Route::get('/route1', 'method1');
+    Route::get('/contact', 'showContact')->name('contact');
     // Route::get('/route1', 'method1');
 });
 

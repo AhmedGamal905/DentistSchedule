@@ -18,5 +18,8 @@ class ViewController extends Controller
     {
         return view('pages.location');
     }
-    
+    public function showContact()
+    {
+        return view('pages.contact');
+    }
 }

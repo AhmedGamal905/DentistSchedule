@@ -1,0 +1,42 @@
+.contact-section {
+    background-color: #E7CEB9;
+}
+
+.contact-elements {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0% 25%;
+    min-height: 100vh;
+}
+
+.contact-elements h1 {
+    color: #231F20;
+    font-size: 72px;
+    font-family: "Playfair Display", serif;
+    padding: 10px 0px;
+}
+
+.contact-elements h2 {
+    color: #231F20;
+    font-size: 42px;
+    font-family: "Playfair Display", serif;
+    padding: 10px 0px;
+}
+
+.contact-elements h3 {
+    color: #231F20;
+    font-size: 26px;
+    font-weight: 400;
+    font-family: "Lato", sans-serif;
+    padding: 10px 0px;
+}
+
+.contact-elements p,
+a {
+    color: #231F20;
+    font-size: 22px;
+    font-weight: 300;
+    font-family: "Lato", sans-serif;
+    padding: 10px 0px;
+}
