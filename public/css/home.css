@@ -20,9 +20,11 @@ body {
     background-color: #231F20;
 }
 
-.home-header h1 {
+.home-link {
     font-family: "Playfair Display", serif;
     color: white;
+    text-decoration: none;
+    font-size: 30px;
 }
 
 .header-links a {
@@ -54,6 +56,8 @@ body {
     font-family: "Lato", sans-serif;
     font-size: 16px;
     color: #000;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-btns {
@@ -70,6 +74,30 @@ body {
     border: none;
     cursor: pointer;
     margin: 10px;
+}
+
+.alert {
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
 
 /* Media Query for Mobile Devices */
