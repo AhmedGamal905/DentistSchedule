@@ -2,29 +2,36 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Appointment;
-use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
-use Carbon\CarbonTimeZone;
+use Livewire\Component;
 
 class AppointmentsCalendar extends Component
 {
-    public $selectedDate;
-    public $appointments = [];
+    public $selectedDate = null;
 
     public function render()
     {
-        return view('livewire.appointments-calendar');
+        if ($this->selectedDate) {
+            $appointments = Appointment::where('date', $this->selectedDate)
+                ->whereNull('user_id')
+                ->get();
+        } else {
+            $appointments = [];
+        }
+
+        return view('livewire.appointments-calendar', compact('appointments'));
     }
 
-    public function fetchAppointments($date)
+    public function bookAppointment(Appointment $appointment)
     {
-        if (Carbon::parse($date)->isPast()) {
-            $this->selectedDate = null;
+        if ($appointment->user_id) {
+            return session()->flash('error', 'Appointment isn\'t available');
         }
-        $this->appointments = Appointment::where('appointment_date', $date)
-            ->whereNull('user_id')
-            ->get();
+
+        $appointment->update(['user_id' => auth()->user()->id]);
+
+        session()->flash('success', 'Appointment Booked successfully!');
+
+        return redirect()->route('appointment.index');
     }
 }

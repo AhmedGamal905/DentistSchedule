@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::middleware('auth')->resource('/appointment', AppointmentController::class);
+Route::middleware('auth')->resource('/appointment', AppointmentController::class)->only(['index', 'create']);
 
 Route::controller(ViewController::class)->group(function () {
     Route::get('/services', 'showServices')->name('services');
@@ -24,4 +24,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

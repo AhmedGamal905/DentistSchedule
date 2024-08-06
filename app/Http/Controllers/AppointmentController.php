@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
-use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
@@ -18,7 +17,11 @@ class AppointmentController extends Controller
             ->latest()
             ->get();
 
-        return view('appointment', compact('appointments'));
+        $upcomingAppointments = $appointments->where('date', '>=', now()->toDateString());
+
+        $pastAppointments = $appointments->where('date', '<=', now()->toDateString());
+
+        return view('appointment', compact('pastAppointments', 'upcomingAppointments'));
     }
 
     /**
@@ -27,52 +30,5 @@ class AppointmentController extends Controller
     public function create()
     {
         return view('book');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Appointment $appointment)
-    {
-        if ($appointment->user_id) {
-            session()->flash('error', 'Appointment isn\'t available');
-        }
-
-        $appointment->update(['user_id' => auth()->user()->id]);
-
-        session()->flash('success', 'Appointment Booked successfully!');
-
-        return redirect()->route('appointment.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

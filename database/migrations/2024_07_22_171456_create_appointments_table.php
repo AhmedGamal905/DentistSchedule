@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('doctor_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-            $table->date('appointment_date');
-            $table->time('appointment_time');
+            $table->date('date');
+            $table->time('time');
             $table->timestamps();
         });
     }

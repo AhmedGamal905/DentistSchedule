@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use DateTime;
-use Carbon\Carbon;
-use App\Models\Appointment;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Appointment;
+use Carbon\CarbonInterval;
+use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
@@ -36,68 +34,40 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'shiftDate' => ['required', 'date', 'after_or_equal:today'],
-            'startTime' => ['required', 'date_format:H:i'],
-            'endTime' => ['required', 'date_format:H:i', 'after:startTime'],
+        $request->validate([
+            'shift_date' => ['required', 'date', 'after_or_equal:today'],
+            'start_time' => ['required', 'date_format:H:i'],
+            'end_time' => ['required', 'date_format:H:i', 'after:start_time'],
         ]);
 
-        $doctorId = Auth::guard('doctor')->id();
-        $appointmentDate = Carbon::parse($data['shiftDate'])->format('Y-m-d');
-        $startTime = Carbon::parse($data['startTime']);
-        $endTime = Carbon::parse($data['endTime'])->subMinutes(30);
-        $currentTime = Carbon::now();
+        $doctorId = auth('doctor')->id();
 
-        if ($endTime->diffInMinutes($startTime) % 30 !== 0) {
-            return back()->withErrors(['endTime' => 'Each appointment must have a duration of exactly 30 minutes']);
-        }
+        $pluckTimes = Appointment::query()
+            ->where('doctor_id', $doctorId)
+            ->where('date', $request->shift_date)
+            ->pluck('time')
+            ->toArray();
 
-        if ($appointmentDate === $currentTime->format('Y-m-d') && $startTime->lessThan($currentTime)) {
-            return back()->withErrors(['startTime' => 'The start time cannot be in the past if the date is today.']);
-        }
+        $periods = CarbonInterval::minutes(30)
+            ->toPeriod($request->shift_date.$request->start_time, $request->shift_date.$request->end_time)
+            ->toArray();
 
-        for ($appointmentTime = $startTime; $appointmentTime->lessThanOrEqualTo($endTime); $appointmentTime->addMinutes(30)) {
-
-            $appointmentData = [
-                'appointment_date' => $appointmentDate,
-                'appointment_time' => $appointmentTime->format('H:i'),
+        $data = collect($periods)
+            ->reject(fn ($period) => in_array($period->format('H:i:s'), $pluckTimes))
+            ->map(fn ($period) => [
+                'date' => $period->format('Y-m-d'),
+                'time' => $period->format('H:i'),
                 'doctor_id' => $doctorId,
-            ];
+                'created_at' => now(),
+                'updated_at' => now(),
+            ])
+            ->toArray();
 
-            if (Appointment::where($appointmentData)->exists()) {
-                continue;
-            }
-
-            Appointment::create($appointmentData);
-        }
+        Appointment::insert($data);
 
         session()->flash('success', 'Appointments created successfully!');
 
         return to_route('dashboard.appointment.index');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**

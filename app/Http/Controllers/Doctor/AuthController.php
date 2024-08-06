@@ -20,7 +20,7 @@ class AuthController extends Controller
             'password' => ['required', 'min:6'],
         ]);
 
-        if (!Auth::guard('doctor')->attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (! Auth::guard('doctor')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return back()->withErrors([
                 'email' => 'The email must be a valid email address.',
             ]);

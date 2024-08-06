@@ -19,8 +19,8 @@
             <tr>
                 <td class="white-space-nowrap"></td>
                 <td class="align-middle">{{ $appointment->id }}</td>
-                <td class="align-middle">{{ $appointment->appointment_date }}</td>
-                <td class="align-middle">{{ $appointment->appointment_time }}</td>
+                <td class="align-middle">{{ $appointment->date }}</td>
+                <td class="align-middle">{{ $appointment->time }}</td>
                 <td class="align-middle">{{ $appointment->created_at->format('j M Y, g:i a') }}</td>
                 <td class="align-middle">{{ $appointment->user_id }}</td>
                 <td class="align-middle white-space-nowrap text-end pe-3">
