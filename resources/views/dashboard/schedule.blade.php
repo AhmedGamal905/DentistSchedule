@@ -9,13 +9,13 @@
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 
-    <label class="form-label" for="timepicker1">Start Time</label>
+    <label class="form-label" for="timepicker1">First Appointment Time</label>
     <input class="form-control datetimepicker" id="timepicker1" name="start_time" type="text" placeholder="Hour:Min" value="{{ old('start_time') }}" data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' required />
     @error('start_time')
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 
-    <label class="form-label" for="timepicker2">End Time</label>
+    <label class="form-label" for="timepicker2">Last Appointment Time</label>
     <input class="form-control datetimepicker" id="timepicker2" name="end_time" type="text" placeholder="Hour:Min" value="{{ old('end_time') }}" data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' required />
     @error('end_time')
     <div class="alert alert-danger">{{ $message }}</div>

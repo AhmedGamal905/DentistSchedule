@@ -42,10 +42,11 @@ class AppointmentController extends Controller
 
         $doctorId = auth('doctor')->id();
 
-        $pluckTimes = Appointment::query()
+        $existingAppointments = Appointment::query()
             ->where('doctor_id', $doctorId)
             ->where('date', $request->shift_date)
-            ->pluck('time')
+            ->get(['time', 'date'])
+            ->groupBy('date')
             ->toArray();
 
         $periods = CarbonInterval::minutes(30)
@@ -53,7 +54,15 @@ class AppointmentController extends Controller
             ->toArray();
 
         $data = collect($periods)
-            ->reject(fn ($period) => in_array($period->format('H:i:s'), $pluckTimes))
+            ->reject(function ($period) use ($existingAppointments) {
+                $times = $existingAppointments[$period->format('Y-m-d')] ?? null;
+
+                if (! is_null($times)) {
+                    return in_array($period->format('H:i:s'), $times);
+                }
+
+                return false;
+            })
             ->map(fn ($period) => [
                 'date' => $period->format('Y-m-d'),
                 'time' => $period->format('H:i'),
