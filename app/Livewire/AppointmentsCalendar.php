@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Mail\appointmentConfirmation;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class AppointmentsCalendar extends Component
@@ -29,6 +31,10 @@ class AppointmentsCalendar extends Component
         }
 
         $appointment->update(['user_id' => auth()->user()->id]);
+
+        Mail::to(auth()->user())->queue(
+            new appointmentConfirmation($appointment)
+        );
 
         session()->flash('success', 'Appointment Booked successfully!');
 
