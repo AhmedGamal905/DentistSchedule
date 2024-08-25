@@ -40,3 +40,75 @@ a {
     font-family: "Lato", sans-serif;
     padding: 10px 0px;
 }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    .contact-elements {
+        margin: 0 10%;
+    }
+
+    .contact-elements h1 {
+        font-size: 48px;
+    }
+
+    .contact-elements h2 {
+        font-size: 32px;
+    }
+
+    .contact-elements h3 {
+        font-size: 20px;
+    }
+
+    .contact-elements p,
+    a {
+        font-size: 18px;
+    }
+}
+
+/* Media Query for Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .contact-elements {
+        margin: 0 15%;
+    }
+
+    .contact-elements h1 {
+        font-size: 60px;
+    }
+
+    .contact-elements h2 {
+        font-size: 36px;
+    }
+
+    .contact-elements h3 {
+        font-size: 24px;
+    }
+
+    .contact-elements p,
+    a {
+        font-size: 20px;
+    }
+}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) {
+    .contact-elements {
+        margin: 0 25%;
+    }
+
+    .contact-elements h1 {
+        font-size: 72px;
+    }
+
+    .contact-elements h2 {
+        font-size: 42px;
+    }
+
+    .contact-elements h3 {
+        font-size: 26px;
+    }
+
+    .contact-elements p,
+    a {
+        font-size: 22px;
+    }
+}

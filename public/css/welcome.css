@@ -31,12 +31,16 @@
     color: #231F20;
     font-size: 15px;
     font-family: "Lato", sans-serif;
+    font-weight: 500;
     border-radius: 20px;
     padding: 10px 20px;
     width: 214px;
     border: none;
     cursor: pointer;
     margin: 20px 0;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .landing-section h3 {
@@ -46,7 +50,7 @@
     color: white;
 }
 
-.landing-section a {
+.contact-tag {
     font-family: "Lato", sans-serif;
     font-size: 24px;
     color: #addbc6;
@@ -94,7 +98,7 @@
         font-size: 15px;
     }
 
-    .landing-section a {
+    .contact-tag {
         font-size: 15px;
     }
 }
@@ -131,7 +135,7 @@
         font-size: 15px;
     }
 
-    .landing-section a {
+    .contact-tag {
         font-size: 15px;
     }
 }
@@ -165,7 +169,7 @@
         font-size: 24px;
     }
 
-    .landing-section a {
+    .contact-tag {
         font-size: 24px;
     }
 }

@@ -42,36 +42,30 @@
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
-    .date-picker-input {
-        width: 90%;
-        font-size: 14px;
-    }
 
-    .app-box h2 {
-        font-size: 24px;
+    .appointment-section p,
+    .box h2,
+    .box p {
+        font-size: 18px;
     }
 }
 
 /* Media Query for Tablets */
 @media (min-width: 481px) and (max-width: 1024px) {
-    .date-picker-input {
-        width: 70%;
-        font-size: 16px;
-    }
 
-    .app-box h2 {
-        font-size: 28px;
+    .appointment-section p,
+    .box h2,
+    .box p {
+        font-size: 20px;
     }
 }
 
 /* Media Query for Laptops and Desktops */
 @media (min-width: 1025px) {
-    .date-picker-input {
-        width: 480px;
-        font-size: 16px;
-    }
 
-    .app-box h2 {
-        font-size: 30px;
+    .appointment-section p,
+    .box h2,
+    .box p {
+        font-size: 22px;
     }
 }

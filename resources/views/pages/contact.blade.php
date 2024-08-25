@@ -10,7 +10,7 @@
         <h2>Email</h2>
         <p>Reach us at <a href="mailto:Info@dentalSchedule.com">Info@dentalSchedule.com</a>, where we’ll respond as soon as we can.</p>
         <h2>Online</h2>
-        <p>Book an appointment online, simply by clicking <a href="#">here</a>.</p>
+        <p>Book an appointment online, simply by clicking <a href="{{ route('appointment.create') }}">here</a>.</p>
     </div>
 </section>
 @endsection

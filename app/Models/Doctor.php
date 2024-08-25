@@ -36,4 +36,9 @@ class Doctor extends Authenticatable
     {
         return $this->hasMany(Appointment::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasManyThrough(Rating::class, Appointment::class);
+    }
 }

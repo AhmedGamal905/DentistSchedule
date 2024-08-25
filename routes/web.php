@@ -9,7 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::middleware('auth')->resource('/appointment', AppointmentController::class)->only(['index', 'create']);
+Route::middleware('auth')->group(
+    function () {
+        Route::resource('/appointment', AppointmentController::class)->only(['index', 'create', 'update']);
+    }
+);
 
 Route::controller(ViewController::class)->group(function () {
     Route::get('/services', 'showServices')->name('services');

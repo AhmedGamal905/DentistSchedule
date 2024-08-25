@@ -31,5 +31,40 @@
     font-family: "Lato", sans-serif;
     font-weight: 300;
     padding: 10px 0px;
+}
 
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    padding: 0 0.2em;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating label::before {
+    content: "★";
+}
+
+.rating input:checked~label {
+    color: #f90;
+}
+
+.rating label:hover,
+.rating label:hover~label {
+    color: #f90;
+}
+
+.rating input:checked~label:hover,
+.rating input:checked~label:hover~label {
+    color: #f90;
 }
