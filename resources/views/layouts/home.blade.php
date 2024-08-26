@@ -31,7 +31,22 @@
             @endauth
             @endif
         </nav>
+        <button class="menu-toggle">Menu</button>
     </header>
+    <div class="mobile-menu">
+        <a href="{{ route('services') }}">Services</a>
+        <a href="{{ route('pricing') }}">Insurance & Prices</a>
+        <a href="{{ route('location') }}">Location</a>
+        <a href="{{ route('contact') }}">Contact</a>
+        <a href="{{ route('appointment.create') }}">Book Now</a>
+        @if (Route::has('login'))
+        @auth
+        <a href="{{ route('appointment.index') }}">Appointments</a>
+        @else
+        <a href="{{ route('register') }}">Register</a>
+        @endauth
+        @endif
+    </div>
     @if (session()->has('success'))
     <div class="alert alert-success" role="alert">
         {{ session('success') }}
@@ -55,6 +70,7 @@
             <button class="footer-btn">Visit our yelp</button>
         </div>
     </footer>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

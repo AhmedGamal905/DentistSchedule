@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Doctor\AppointmentController;
 use App\Http\Controllers\Doctor\AuthController;
+use App\Http\Controllers\Doctor\RatingController;
 use App\Http\Controllers\Doctor\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +11,9 @@ Route::middleware('auth:doctor')->group(function () {
         return view('dashboard.welcome');
     })->name('welcome');
 
-    Route::resource('appointment', AppointmentController::class)->except(['show', 'edit', 'update']);
+    Route::resource('/appointment', AppointmentController::class)->except(['show', 'edit', 'update']);
+
+    Route::resource('/rating', RatingController::class)->only('index');
 
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
 });

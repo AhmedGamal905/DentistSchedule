@@ -115,6 +115,11 @@
                                             </div>
                                         </a>
                                     </li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard.rating.index') }}">
+                                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Ratings</span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
