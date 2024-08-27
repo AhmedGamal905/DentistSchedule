@@ -35,7 +35,7 @@ class AppointmentController extends Controller
                 'time' => $appointment->time,
                 'rating' => $rating ? $rating->rating : null,
             ];
-            
+
         });
 
         return view('appointment', compact('pastAppointments', 'upcomingAppointments'));

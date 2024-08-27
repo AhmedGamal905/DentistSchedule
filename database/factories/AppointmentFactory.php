@@ -13,7 +13,7 @@ class AppointmentFactory extends Factory
     public function definition()
     {
         return [
-            'doctor_id' => Doctor::first()->id,
+            'doctor_id' => Doctor::factory(),
             'date' => $this->faker->dateTimeBetween('now', '+1 month')->format('Y-m-d'),
             'time' => $this->faker->time('H:i'),
             'created_at' => now(),

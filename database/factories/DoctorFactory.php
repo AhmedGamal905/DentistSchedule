@@ -18,9 +18,11 @@ class DoctorFactory extends Factory
     {
         return
             [
-                'name' => $this->faker->name(),
-                'email' => 'doctor@doctor.com',
-                'password' => 'doctor@doctor.com',
+                'name' => $this->faker->name,
+                'email' => $this->faker->unique()->safeEmail,
+                'password' => bcrypt('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
     }
 }
