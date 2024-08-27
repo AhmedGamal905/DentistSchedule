@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Mail\appointmentConfirmation;
+use App\Mail\AppointmentConfirmation;
 use App\Models\Appointment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -36,12 +36,12 @@ class CheckAppointmentsJob implements ShouldQueue
 
         foreach ($appointments as $appointment) {
             //checking if a confirmation email was sent with in 24hrs
-            $cacheKey = 'appointment_eml_sent_'.$appointment->id;
+            $cacheKey = 'appointment_eml_sent_' . $appointment->id;
 
             if (! Cache::has($cacheKey)) {
 
-                Mail::to($appointment->user->email)->queue(
-                    new appointmentConfirmation($appointment)
+                Mail::to($appointment->user->email)->send(
+                    new AppointmentConfirmation($appointment)
                 );
 
                 Cache::put($cacheKey, true, now()->addDay());

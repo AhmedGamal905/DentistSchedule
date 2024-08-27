@@ -18,4 +18,9 @@ class Rating extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
+
+    public function user()
+    {
+        return $this->hasOneThrough(User::class, Appointment::class, 'id', 'id', 'appointment_id', 'user_id');
+    }
 }

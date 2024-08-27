@@ -47,7 +47,7 @@ class AppointmentTest extends TestCase
             })
             ->assertViewHas('pastAppointments', function ($pastAppointments) use ($pastAppointment, $rating) {
                 $pastAppointmentWithRating = $pastAppointments->firstWhere('id', $pastAppointment->id);
-                return $pastAppointmentWithRating && $pastAppointmentWithRating->rating === $rating->rating;
+                return $pastAppointmentWithRating && $pastAppointmentWithRating->rating->is($rating);
             });
     }
     public function test_no_appointments_message_is_displayed(): void

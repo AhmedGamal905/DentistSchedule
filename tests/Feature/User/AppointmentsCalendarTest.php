@@ -7,7 +7,7 @@ use App\Models\User;
 use Livewire\Livewire;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\appointmentConfirmation;
+use App\Mail\AppointmentConfirmation;
 use App\Livewire\AppointmentsCalendar;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

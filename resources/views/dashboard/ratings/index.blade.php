@@ -15,8 +15,8 @@
             @forelse ($ratings as $rating)
             <tr>
                 <td class="align-middle">{{$rating->rating }}</td>
-                <td class="align-middle">{{$rating->appointment->user->id }}</td>
-                <td class="align-middle">{{$rating->appointment->user->name }}</td>
+                <td class="align-middle">{{$rating->user->id }}</td>
+                <td class="align-middle">{{$rating->user->name }}</td>
                 <td class="align-middle">{{$rating->appointment->date }} {{$rating->appointment->time }}</td>
                 <td class="align-middle">{{$rating->created_at}}</td>
             </tr>
