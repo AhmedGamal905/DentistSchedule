@@ -1,66 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DentistSchedule
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+DentistSchedule is a web application designed for a dental clinic, allowing users to view services, book appointments, and manage their dental care seamlessly. The application features a responsive design, ensuring accessibility across various devices.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### User Interface
+- **Responsive Design**: Built with HTML and CSS, enhanced with media queries to ensure a flexible design across various devices.
+- **User Authentication**: Users can sign in or create an account to access personalized features.
+- **Service Overview**: Users can view the services provided by the clinic.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### User Functionality
+- **Doctor and Appointment Management**: Users can check available doctors and appointments.
+- **Booking System**: Facilitated through Livewire components, users can book appointments.
+- **Email Notifications**: Confirmation emails are sent upon booking, and reminder emails are sent 24 hours before the appointment using Jobs and queues.
+- **Appointment History**: Users can view upcoming and past appointments and rate their previous appointments.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Doctor Dashboard
+- **Shift Management**: Doctors can choose their shifts, set the start and end times, and the system creates 30-minute intervals.
+- **Appointment Overview**: Doctors can view all booked and available appointments and have the option to cancel them.
+- **Ratings and Feedback**: Doctors can view ratings from users.
 
-## Learning Laravel
+## Usage
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+After accessing the application, users can create an account, log in, and begin managing their appointments. Doctors can log into their separate dashboard to manage shifts and appointments.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Tech Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Frontend**: HTML, CSS, Livewire
+- **Backend**: PHP, Laravel
+- **Database**: MySQL
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Steps
 
-### Premium Partners
+1. **Clone the repository:**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+   ```bash
+   git clone https://github.com/AhmedGamal905/DentistSchedule
+   cd DentistSchedule
+   ```
 
-## Contributing
+2. **Install backend dependencies:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+3. **Set up environment variables:**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   Create a `.env` file in the root directory and add the necessary configuration values:
 
-## Security Vulnerabilities
+   ```plaintext
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=clinic
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Run database migrations:**
 
-## License
+   ```bash
+   php artisan migrate
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. **Start the development server:**
+
+   ```bash
+   php artisan serve
+   npm start
+   ```
+
+6. **Access the application:**
+
+   Open your browser and navigate to `http://localhost:8000` (or the specified port).

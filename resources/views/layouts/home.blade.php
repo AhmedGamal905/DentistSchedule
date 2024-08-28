@@ -26,8 +26,13 @@
             @if (Route::has('login'))
             @auth
             <a href="{{ route('appointment.index') }}">Appointments</a>
+            <a href="#" class="logout-link">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             @else
             <a href="{{ route('register') }}">Register</a>
+            <a href="{{ route('login') }}">LogIn</a>
             @endauth
             @endif
         </nav>
@@ -42,8 +47,13 @@
         @if (Route::has('login'))
         @auth
         <a href="{{ route('appointment.index') }}">Appointments</a>
+        <a href="#" class="logout-link">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
         @else
         <a href="{{ route('register') }}">Register</a>
+        <a href="{{ route('login') }}">LogIn</a>
         @endauth
         @endif
     </div>

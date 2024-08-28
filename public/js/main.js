@@ -12,3 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+document.querySelectorAll('.logout-link').forEach(function (element) {
+    element.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById('logout-form').submit();
+    });
+});
